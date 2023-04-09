@@ -11,6 +11,11 @@ export const resolvers = {
       return Job.findAll();
     },
   },
+  Company: {
+    jobs: (company) => {
+      return Job.findAll((job) => job.companyId === company.id);
+    },
+  },
   Job: {
     company: (job) => {
       return Company.findById(job.companyId);
